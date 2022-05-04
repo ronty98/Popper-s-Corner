@@ -1,0 +1,13 @@
+function check() {
+    var userName = document.getElementById('username').value;
+    var passWord = document.getElementById('password').value;
+
+    if (userName == 'admin' && passWord == 'admin') {
+        alert('Login Successful!');
+    }
+    else {
+        alert('Please enter valid credentials.')
+    }
+}
+
+
