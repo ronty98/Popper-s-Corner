@@ -31,35 +31,36 @@
           <h3>Signup Here</h3>
 
           <div class="f1 form-floating" >
-            <input type="text" class="form-control" id="username"  placeholder="Name">
+            <input type="text" class="form-control" id="username"  onkeyup="checkusername()" placeholder="Name">
             <label for="floatingInput">Name</label>
             <i class="fas fa-check-circle"></i>
 			      <i class="fas fa-exclamation-circle"></i>
 			      <small>Error message</small>
           </div>
           <div class="f1 form-floating">
-            <input type="email" class="form-control" id="email"  placeholder="Phone">
+            <input type="email" class="form-control" id="email"  onkeyup="checkemail()" placeholder="Phone">
             <label for="floatingPassword">Email</label>
             <i class="fas fa-check-circle"></i>
 			      <i class="fas fa-exclamation-circle"></i>
 			      <small>Error message</small>
           </div>
           <div class="f1 form-floating ">
-            <input type="password" class="form-control" id="password" required placeholder="Email">
+            <input type="password" class="form-control" id="password" onkeyup="" required placeholder="Email">
             <label for="floatingInput">Password</label>
             <i class="fas fa-check-circle"></i>
 			      <i class="fas fa-exclamation-circle"></i>
 			      <small>Error message</small>
           </div>
           <div class="f1 form-floating">
-            <input type="password" class="form-control" id="password2" required placeholder="Password">
+            <input type="password" class="form-control" id="password2" onkeyup="checkpass()"  required placeholder="Password">
             <label for="floatingPassword">Confirm Password</label>
             <i class="fas fa-check-circle"></i>
 			      <i class="fas fa-exclamation-circle"></i>
 			      <small>Error message</small>
           </div>
           
-          <button type= "submit" class="btn btn-outline-light">Submit</button>
+          <button class="btn btn-outline-light" onclick="checkall()">Submit</button>
+          <a id="newsignup" href="index.html"> Existing User? </a>
           <div class="social">
             <i class="fab fa-google" id="google"></i> <a href="#">Google</a>
             <i class="fab fa-facebook" id="fb"></i> <a href="#">Facebook</a>

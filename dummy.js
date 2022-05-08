@@ -1,7 +1,7 @@
+
 var dataList= [];
 let i=0;
 
-let usernameflag, emailflag, passwordflag , password2flag  = 0;
 
 const form = document.getElementById('form');
 const username = document.getElementById('username');
@@ -10,27 +10,29 @@ const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 
 
+
 form.addEventListener('submit', e => {
 	e.preventDefault();
 
-	checkall();
+	checkInputs();
 });
 
+function checkInputs() {
+	const usernameValue = username.value.trim();
+	const emailValue = email.value.trim();
+	const passwordValue = password.value.trim();
+	const password2Value = password2.value.trim();
 
-function checkusername(){
-const usernameValue = username.value.trim();
-
-if(usernameValue === '') {
+    let usernameflag, emailflag, passwordflag , password2flag  = 0;
+	
+	
+	if(usernameValue === '') {
 		setErrorFor(username, 'Name cannot be blank');
 	} else {
 		setSuccessFor(username);
         usernameflag = 1;
 	}
-}
-
-function checkemail(){
-const emailValue = email.value.trim();
-
+	
 	if(emailValue === '') {
 		setErrorFor(email, 'Email cannot be blank');
 	} else if (!isEmail(emailValue)) {
@@ -39,16 +41,12 @@ const emailValue = email.value.trim();
 		setSuccessFor(email);
         emailflag = 1;
 	}
-}
-
-function checkpass(){
-const passwordValue = password.value.trim();
-const password2Value = password2.value.trim();
-
+	
 	if(passwordValue === '') {
 		setErrorFor(password, 'Password cannot be blank');
 	} else {
 		setSuccessFor(password);
+        passwordflag = 1;
 	}
 	
 	if(password2Value === '') {
@@ -59,14 +57,12 @@ const password2Value = password2.value.trim();
 		setSuccessFor(password2);
         password2flag = 1;
 	}
-}
 
-function checkall(){
- if(usernameflag && emailflag && password2flag  === 1){
-        //console.log(username.value.trim(), email.value.trim());
-        dataList[i]= [username.value.trim(), email.value.trim()];
-		//i++;
-		console.log(JSON.stringify(dataList)); 
+    if(usernameflag && emailflag && passwordflag && password2flag  === 1){
+        //console.log(usernameValue, emailValue);
+        dataList[i]= [usernameValue, emailValue];
+		i++;
+		console.log(JSON.stringify(dataList));
 		//localStorage.setItem("name", JSON.stringify(usernameValue))
 		//localStorage.setItem("pass", JSON.stringify(passwordValue))
     }
@@ -74,8 +70,6 @@ function checkall(){
         console.log('Invalid inputs');
     }
 }
-
-
 
 function setErrorFor(input, message) {
 	const formControl = input.parentElement;
@@ -92,3 +86,35 @@ function setSuccessFor(input) {
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
+
+/*function check() {
+    var name1 = document.getElementById('name').value;
+    var pass1 = document.getElementById('pass').value;
+    
+	let checkList=[name1, pass1];
+	localStorage.getItem("name");
+	localStorage.getItem("pass");
+	for(let i=0; i<= dataList.length; i++){
+
+		if (dataList[i]=== checkList) {
+			alert('Login Successful!');
+		}
+		else {
+			alert('Please enter valid credentials.')
+		}
+	}
+    
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
