@@ -62,11 +62,12 @@ const password2Value = password2.value.trim();
 }
 
 function checkall(){
- if(usernameflag && emailflag && password2flag  === 1){
+ if(usernameflag && emailflag && password2flag  == 1){
         //console.log(username.value.trim(), email.value.trim());
         dataList[i]= [username.value.trim(), email.value.trim()];
 		//i++;
 		console.log(JSON.stringify(dataList)); 
+		//console.log("success!");
 		//localStorage.setItem("name", JSON.stringify(usernameValue))
 		//localStorage.setItem("pass", JSON.stringify(passwordValue))
     }
@@ -91,4 +92,32 @@ function setSuccessFor(input) {
 	
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+
+function check() {
+    var name1 = document.getElementById('name').value;
+    var pass1 = document.getElementById('pass').value;
+    
+	/*let checkList=[name1, pass1];
+	//localStorage.getItem("name");
+	//localStorage.getItem("pass");
+
+	for(let i=0; i<= dataList.length; i++){
+
+		if (dataList[i]=== checkList) {
+			alert('Login Successful!');
+		}
+		else {
+			alert('Please enter valid credentials.')
+		}
+	}*/
+
+	if(name1=='admin' && pass1=='admin'){
+		alert("Login successful!")
+	}
+	else{
+		alert("Please enter valid credentials.")
+	}
+    
 }
